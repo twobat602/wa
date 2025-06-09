@@ -86,51 +86,57 @@ CloseButton.Text = "X"
 CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 CloseButton.TextSize = 12
 
---// Smart Hop Button (Random server with space)
+--// Smart Server Hop Button
 RunButton.MouseButton1Click:Connect(function()
-    local function findServers()
-        local servers = {}
-        local success, response = pcall(function()
-            return HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"))
-        end)
-        if success and response and response.data then
-            for _, server in ipairs(response.data) do
-                if server.playing < server.maxPlayers then
-                    table.insert(servers, server)
-                end
-            end
-        end
-        return servers
-    end
+	local placeId = game.PlaceId
+	local player = Players.LocalPlayer
 
-    local servers = findServers()
-    if #servers > 0 then
-        local target = servers[math.random(1, #servers)]
-        queue_on_teleport("loadstring(game:HttpGet('https://pastebin.com/raw/YOUR_PASTEBIN_CODE'))()")
-        TeleportService:TeleportToPlaceInstance(game.PlaceId, target.id, LocalPlayer)
-    else
-        warn("Walang available na hindi full na server.")
-    end
+	local function findServers()
+		local servers = {}
+		local success, response = pcall(function()
+			return HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Asc&limit=100"))
+		end)
+		if success and response and response.data then
+			for _, server in ipairs(response.data) do
+				if server.playing < server.maxPlayers then
+					table.insert(servers, server)
+				end
+			end
+		end
+		return servers
+	end
+
+	local function serverHop()
+		local servers = findServers()
+		if #servers > 0 then
+			local randomServer = servers[math.random(1, #servers)]
+			queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/twobat602/wa/refs/heads/main/ServerFinder', true))()")
+			TeleportService:TeleportToPlaceInstance(placeId, randomServer.id, player)
+		else
+			warn("Walang available na hindi full na server.")
+		end
+	end
+
+	serverHop()
 end)
 
---// Join specific job ID
+--// Join by Job ID
 JoinButton.MouseButton1Click:Connect(function()
-    local jobId = JobInput.Text
-    if jobId ~= "" then
-        queue_on_teleport("loadstring(game:HttpGet('https://pastebin.com/raw/YOUR_PASTEBIN_CODE'))()")
-        TeleportService:TeleportToPlaceInstance(game.PlaceId, jobId, LocalPlayer)
-    end
+	local jobId = JobInput.Text
+	if jobId ~= "" then
+		TeleportService:TeleportToPlaceInstance(game.PlaceId, jobId, LocalPlayer)
+	end
 end)
 
---// Quantum Onyx Executor Button
+--// Quantum Button
 QuantumButton.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/flazhy/QuantumOnyx/refs/heads/main/QuantumOnyx.lua"))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/flazhy/QuantumOnyx/refs/heads/main/QuantumOnyx.lua"))()
 end)
 
 --// Close GUI
 CloseButton.MouseButton1Click:Connect(function()
-    ScreenGui:Destroy()
+	ScreenGui:Destroy()
 end)
 
---// Persist GUI on Teleport
-queue_on_teleport("loadstring(game:HttpGet('https://pastebin.com/raw/YOUR_PASTEBIN_CODE'))()")
+--// Persistent GUI on Server Hop
+queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/twobat602/wa/refs/heads/main/ServerFinder', true))()")
