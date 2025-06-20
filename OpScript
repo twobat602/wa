@@ -10,8 +10,8 @@ screenGui.Parent = PlayerGui
 
 local mainFrame = Instance.new("Frame")
 mainFrame.Name = "MainFrame"
-mainFrame.Size = UDim2.new(0, 180, 0, 120)
-mainFrame.Position = UDim2.new(0.5, -90, 0.5, -60)
+mainFrame.Size = UDim2.new(0, 180, 0, 140) -- tumaas para sa status label
+mainFrame.Position = UDim2.new(0.5, -90, 0.5, -70)
 mainFrame.BackgroundColor3 = Color3.fromRGB(30, 40, 60)
 mainFrame.BorderSizePixel = 0
 mainFrame.Active = true
@@ -57,7 +57,7 @@ minimizeBtn.Parent = mainFrame
 local toggleBtn = Instance.new("TextButton")
 toggleBtn.Name = "ToggleBtn"
 toggleBtn.Size = UDim2.new(1, -20, 0, 38)
-toggleBtn.Position = UDim2.new(0, 10, 1, -48)
+toggleBtn.Position = UDim2.new(0, 10, 1, -58)
 toggleBtn.BackgroundColor3 = Color3.fromRGB(75, 170, 85)
 toggleBtn.Text = "Start"
 toggleBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -65,15 +65,29 @@ toggleBtn.Font = Enum.Font.GothamBold
 toggleBtn.TextSize = 16
 toggleBtn.Parent = mainFrame
 
+local statusLabel = Instance.new("TextLabel")
+statusLabel.Name = "StatusLabel"
+statusLabel.Size = UDim2.new(1, -20, 0, 20)
+statusLabel.Position = UDim2.new(0, 10, 1, -90)
+statusLabel.BackgroundTransparency = 1
+statusLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
+statusLabel.Font = Enum.Font.Gotham
+statusLabel.TextSize = 14
+statusLabel.Text = "Idle"
+statusLabel.TextXAlignment = Enum.TextXAlignment.Left
+statusLabel.Parent = mainFrame
+
 local minimized = false
 minimizeBtn.MouseButton1Click:Connect(function()
 	if minimized then
-		mainFrame.Size = UDim2.new(0, 180, 0, 120)
+		mainFrame.Size = UDim2.new(0, 180, 0, 140)
 		toggleBtn.Visible = true
+		statusLabel.Visible = true
 		minimized = false
 	else
 		mainFrame.Size = UDim2.new(0, 180, 0, 30)
 		toggleBtn.Visible = false
+		statusLabel.Visible = false
 		minimized = true
 	end
 end)
@@ -136,38 +150,47 @@ local function unequipTool()
 end
 
 local function triggerProximity()
-	local prompt = craftingPath.SeedEventCraftingWorkBench.Model.BenchTable:WaitForChild("CraftingProximityPrompt")
-	prompt.MaxActivationDistance = math.huge
-	prompt:InputHoldBegin()
-	prompt:InputHoldEnd()
+	local prompt = craftingPath.SeedEventCraftingWorkBench.Model.BenchTable:FindFirstChild("CraftingProximityPrompt")
+	if prompt and prompt:IsA("ProximityPrompt") then
+		fireproximityprompt(prompt, 1)
+	end
 end
 
 local function automateCrafting()
 	while running do
 		if not hasSeedTool() then
+			statusLabel.Text = "No Seed Tool found."
 			task.wait(1)
 			continue
 		end
 
+		statusLabel.Text = "Waiting for crafting to finish..."
 		waitForNoCraftingGui()
 
+		statusLabel.Text = "Claiming..."
 		craftEvent:FireServer("Claim", craftingPath, "SeedEventWorkbench", 1)
 		task.wait(0.5)
 
+		statusLabel.Text = "Setting recipe..."
 		craftEvent:FireServer("SetRecipe", craftingPath, "SeedEventWorkbench", "Crafters Seed Pack")
 		task.wait(0.5)
 
+		statusLabel.Text = "Equipping tool..."
 		equipTool()
 		task.wait(1)
 
+		statusLabel.Text = "Triggering proximity..."
 		triggerProximity()
 		task.wait(1)
 
+		statusLabel.Text = "Unequipping tool..."
 		unequipTool()
 
+		statusLabel.Text = "Crafting..."
 		craftEvent:FireServer("Craft", craftingPath, "SeedEventWorkbench")
 		task.wait(1)
 	end
+	statusLabel.Text = "Idle"
 end
 
 toggleBtn.MouseButton1Click:Connect(function()
@@ -179,5 +202,6 @@ toggleBtn.MouseButton1Click:Connect(function()
 	else
 		toggleBtn.Text = "Start"
 		toggleBtn.BackgroundColor3 = Color3.fromRGB(75, 170, 85)
+		statusLabel.Text = "Idle"
 	end
 end)
