@@ -1,1 +1,183 @@
-local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 or bit ;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v78,v79) local v80={};_G.Cs={UQSDDAA=3,YASDMRXA=1,YASa0AVV=2};for v95=1, #v78 do v6(v80,v0(v4(v1(v2(v78,v95,v95 +  #Cs + 1 )),v1(v2(v79,1 + (v95% #v79) ,1 + (v95% #v79) + 1 )))%256 ));end return v5(v80);end local v8=game:GetService(v7("\225\207\218\60\227\169\212","\126\177\163\187\69\134\219\167"));local v9=game:GetService(v7("\17\200\58\201\245\32\204\62\192\248\16\217\37\215\253\36\200","\156\67\173\74\165"));local v10=v8.LocalPlayer;local v11=v10:WaitForChild(v7("\4\187\72\15\185\52\97\33\190","\38\84\215\41\118\220\70"));local v12=Instance.new(v7("\99\21\48\23\251\94\49\55\27","\158\48\118\66\114"));v12.Name=v7("\138\49\4\57\80\183\250\173\48\25\56\116\130\238\162","\155\203\68\112\86\19\197");v12.ResetOnSpawn=false;v12.Parent=v11;local v16=Instance.new(v7("\96\207\55\241\69","\152\38\189\86\156\32\24\133"));v16.Name=v7("\209\86\174\72\218\69\166\75\249","\38\156\55\199");v16.Size=UDim2.new(1665 -(970 + 695) ,343 -163 ,1990 -(582 + 1408) ,416 -296 );v16.Position=UDim2.new(0.5 -0 , -(339 -249),0.5, -(1884 -(1195 + 629)));v16.BackgroundColor3=Color3.fromRGB(117 -87 ,52 -12 ,301 -(187 + 54) );v16.BorderSizePixel=780 -(162 + 618) ;v16.Active=true;v16.Draggable=true;v16.Parent=v12;local v25=Instance.new(v7("\156\120\100\60\63\117\248\70\164","\35\200\29\28\72\115\20\154"));v25.Name=v7("\45\182\197\211\136\0\53\27\186\221","\84\121\223\177\191\237\76");v25.Size=UDim2.new(4 -3 , -(43 + 17),0 + 0 ,63 -33 );v25.Position=UDim2.new(977 -(553 + 424) ,6,0 -0 ,0);v25.BackgroundColor3=Color3.fromRGB(18 + 2 ,30 + 0 ,84 -34 );v25.Text="ðŸŒ± Auto Craft";v25.TextColor3=Color3.fromRGB(230,19 + 221 ,1891 -(1373 + 263) );v25.Font=Enum.Font.GothamBold;v25.TextSize=1016 -(451 + 549) ;v25.TextXAlignment=Enum.TextXAlignment.Left;v25.BorderSizePixel=0 -0 ;v25.Parent=v16;local v39=Instance.new(v7("\143\83\209\180\24\69\36\213\180\88","\161\219\54\169\192\90\48\80"));v39.Size=UDim2.new(0 -0 ,8 + 16 ,0 -0 ,115 -91 );v39.Position=UDim2.new(1 -0 , -(1412 -(746 + 638)),1329 -(797 + 532) ,2 + 1 );v39.Text="âœ•";v39.TextColor3=Color3.fromRGB(87 + 168 ,387 -132 ,255);v39.BackgroundColor3=Color3.fromRGB(1402 -(373 + 829) ,401 -(218 + 123) ,1641 -(1535 + 46) );v39.Font=Enum.Font.GothamBold;v39.TextSize=16 + 0 ;v39.Parent=v16;v39.MouseButton1Click:Connect(function() v12:Destroy();end);local v48=Instance.new(v7("\125\71\24\49\107\87\20\49\70\76","\69\41\34\96"));v48.Size=UDim2.new(0 -0 ,4 + 20 ,0 -0 ,584 -(306 + 254) );v48.Position=UDim2.new(1 + 0 , -56,0 -0 ,1470 -(899 + 568) );v48.Text="â€“";v48.TextColor3=Color3.fromRGB(168 + 87 ,471 -(42 + 174) ,617 -362 );v48.BackgroundColor3=Color3.fromRGB(703 -(268 + 335) ,100,390 -(60 + 230) );v48.Font=Enum.Font.GothamBold;v48.TextSize=592 -(426 + 146) ;v48.Parent=v16;local v57=Instance.new(v7("\136\198\207\30\32\62\168\215\216\4","\75\220\163\183\106\98"));v57.Name=v7("\54\181\140\48\213\7\152\159\57","\185\98\218\235\87");v57.Size=UDim2.new(1 + 0 , -(1476 -(282 + 1174)),811 -(569 + 242) ,109 -71 );v57.Position=UDim2.new(0 + 0 ,10,1025 -(706 + 318) , -(1299 -(721 + 530)));v57.BackgroundColor3=Color3.fromRGB(75,1441 -(945 + 326) ,63 + 22 );v57.Text=v7("\248\40\38\244\202","\202\171\92\71\134\190");v57.TextColor3=Color3.fromRGB(637 -382 ,227 + 28 ,955 -(271 + 429) );v57.Font=Enum.Font.GothamBold;v57.TextSize=15 + 1 ;v57.Parent=v16;local v67=false;v48.MouseButton1Click:Connect(function() if v67 then v16.Size=UDim2.new(0,2113 -(565 + 1368) ,0 -0 ,1620 -(1408 + 92) );v57.Visible=true;v67=false;else local v99=1086 -(461 + 625) ;while true do if (v99==(1288 -(993 + 295))) then v16.Size=UDim2.new(0 + 0 ,1351 -(418 + 753) ,0 + 0 ,30);v57.Visible=false;v99=1 + 0 ;end if ((1 + 0)==v99) then v67=true;break;end end end end);local v68=false;local v69=v7("\15\205\35\159\44\211\108\187\44\196\40\200\25\192\47\131","\232\73\161\76");local v70=workspace:WaitForChild(v7("\146\215\86\88\12\186\218\86\84\17\181","\126\219\185\34\61"),8999999488 -0 ):WaitForChild(v7("\57\222\90\115\106\114\218\243\9\195\77","\135\108\174\62\18\30\23\147"),8999999488 -0 ):WaitForChild(v7("\152\236\61\232\10\175\53\211\191\231\45","\167\214\137\74\171\120\206\83"),9000001257 -(1749 + 20) ):WaitForChild(v7("\184\245\55\89\221\177\142\254\38\126\234\166\141\228\59\83\255\144\132\226\57\127\253\169\136\248","\199\235\144\82\61\152"),9000000076 -(294 + 294) );local v71=v9:WaitForChild(v7("\32\23\180\46\34\0\188\37\19\5","\75\103\118\217"),8988120940 -  -11878548 ):WaitForChild(v7("\228\70\113\18\173\23\201\83\87\24\182\28\198\88\95\22\179\27\196\64\67\17\171\8\206\87\117","\126\167\52\16\116\217"),9573542811 -573543323 );local function v72() local v81=0 -0 ;local v82;while true do if (v81==(1 + 0)) then local v100=1145 -(466 + 679) ;local v101;while true do if (v100==(0 -0)) then v101=0 -0 ;while true do if (v101==(0 -0)) then for v121,v122 in ipairs(v82:GetChildren()) do if (v122:IsA(v7("\51\225\170\194","\174\103\142\197")) and (v122.Name:sub(2 -1 , #v69)==v69)) then return true;end end return false;end end break;end end end if (v81==(1900 -(106 + 1794))) then local v102=0 + 0 ;while true do if (v102==(0 + 0)) then v82=v10:FindFirstChild(v7("\234\47\35\139\164\24\255\195","\156\168\78\64\224\212\121"));if  not v82 then return false;end v102=1 + 0 ;end if (v102==(2 -1)) then v81=2 -1 ;break;end end end end end local function v73() local v83=114 -(4 + 110) ;local v84;local v85;local v86;while true do if (v83==(0 -0)) then v84=v70:WaitForChild(v7("\101\45\90\60\0\72\253\88\60\124\42\36\88\236\95\38\88\15\42\76\243\116\45\81\59\45","\152\54\72\63\88\69\62"));v85=v84:WaitForChild(v7("\249\203\234\89\216","\60\180\164\142"));v83=1;end if (v83==(585 -(57 + 527))) then v86=v85:WaitForChild(v7("\122\91\11\42\47\217\19\90\82\0","\114\56\62\101\73\71\141"));while v68 and v86:FindFirstChild(v7("\155\251\218\194\172\224\213\195\154\224\215\200\186\230\218\214\188\206\206\205","\164\216\137\187"))  do task.wait(1428 -(41 + 1386) );end break;end end end local function v74() local v87=103 -(17 + 86) ;local v88;local v89;while true do if (v87==(0 + 0)) then v88=v10:WaitForChild(v7("\240\231\50\185\182\255\8\217","\107\178\134\81\210\198\158"));v89=v10.Character or v10.CharacterAdded:Wait() ;v87=1;end if (v87==(1 -0)) then for v105,v106 in ipairs(v88:GetChildren()) do if (v106:IsA(v7("\12\1\141\202","\202\88\110\226\166")) and (v106.Name:sub(2 -1 , #v69)==v69)) then local v114=0;local v115;while true do if (v114==(166 -(122 + 44))) then v115=v89:FindFirstChildOfClass(v7("\235\26\143\246\196\204\6\134","\170\163\111\226\151"));if v115 then local v123=0 -0 ;local v124;while true do if (v123==(0 -0)) then v124=1227 -(322 + 905) ;while true do if (0==v124) then v115:EquipTool(v106);return true;end end break;end end end break;end end end end return false;end end end local function v75() local v90=0;local v91;while true do if (v90==(3 -2)) then return false;end if (v90==(0 + 0)) then v91=v10.Character or v10.CharacterAdded:Wait() ;for v107,v108 in ipairs(v91:GetChildren()) do if (v108:IsA(v7("\37\63\189\52","\73\113\80\210\88\46\87")) and (v108.Name:sub(1, #v69)==v69)) then v108.Parent=v10.Backpack;return true;end end v90=1 + 0 ;end end end local function v76() local v92=872 -(826 + 46) ;local v93;while true do if (v92==(0 -0)) then v93=v70.SeedEventCraftingWorkBench.Model.BenchTable:WaitForChild(v7("\162\62\204\20\243\136\34\202\34\245\142\52\196\31\238\149\53\253\0\232\140\60\217","\135\225\76\173\114"));v93.MaxActivationDistance=math.huge;v92=3 -2 ;end if ((1 + 0)==v92) then v93:InputHoldBegin();v93:InputHoldEnd();break;end end end local function v77() while v68 do local v96=0;while true do if (v96==(66 -(30 + 35))) then v71:FireServer(v7("\22\129\171\126\1\139\24\0\32","\112\69\228\223\44\100\232\113"),v70,v7("\231\26\2\215\147\106\131\218\11\48\220\164\119\132\209\17\4\219","\230\180\127\103\179\214\28"),v7("\175\23\94\64\240\68\242\159\69\108\67\225\69\160\188\4\92\77","\128\236\101\63\38\132\33"));task.wait(0.5 + 0 );v74();task.wait(1258 -(1043 + 214) );v96=6 -4 ;end if (v96==(7 -5)) then v76();task.wait(1);v75();v71:FireServer(v7("\143\187\16\66\162","\175\204\201\113\36\214\139"),v70,v7("\116\201\48\216\33\81\201\59\200\51\72\222\62\222\1\73\207\61","\100\39\172\85\188"));v96=5 -2 ;end if (v96==(1215 -(323 + 889))) then task.wait(2 -1 );break;end if (v96==(580 -(361 + 219))) then if  not v72() then local v118=320 -(53 + 267) ;while true do if (v118==0) then task.wait(1 + 0 );continue;break;end end end v73();v71:FireServer(v7("\57\225\185\185\161","\199\122\141\216\208\204\221"),v70,v7("\158\216\21\244\93\224\168\211\4\199\119\228\166\223\21\254\123\254","\150\205\189\112\144\24"),414 -(15 + 398) );task.wait(982.5 -(18 + 964) );v96=3 -2 ;end end end end v57.MouseButton1Click:Connect(function() local v94=1690 -(1121 + 569) ;while true do if (v94==(214 -(22 + 192))) then v68= not v68;if v68 then local v111=0 + 0 ;local v112;while true do if (v111==(0 + 0)) then v112=850 -(20 + 830) ;while true do if (v112==(0 -0)) then v57.Text=v7("\158\108\182\144","\83\205\24\217\224");v57.BackgroundColor3=Color3.fromRGB(133 + 37 ,201 -(116 + 10) ,637 -(334 + 228) );v112=1 + 0 ;end if (v112==1) then task.spawn(v77);break;end end break;end end else local v113=738 -(542 + 196) ;while true do if (v113==(0 -0)) then v57.Text=v7("\213\209\204\47\242","\93\134\165\173");v57.BackgroundColor3=Color3.fromRGB(160 -85 ,170,25 + 60 );break;end end end break;end end end);
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "AutoCraftingGui"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = PlayerGui
+
+local mainFrame = Instance.new("Frame")
+mainFrame.Name = "MainFrame"
+mainFrame.Size = UDim2.new(0, 180, 0, 120)
+mainFrame.Position = UDim2.new(0.5, -90, 0.5, -60)
+mainFrame.BackgroundColor3 = Color3.fromRGB(30, 40, 60)
+mainFrame.BorderSizePixel = 0
+mainFrame.Active = true
+mainFrame.Draggable = true
+mainFrame.Parent = screenGui
+
+local title = Instance.new("TextLabel")
+title.Name = "TitleLabel"
+title.Size = UDim2.new(1, -60, 0, 30)
+title.Position = UDim2.new(0, 6, 0, 0)
+title.BackgroundColor3 = Color3.fromRGB(20, 30, 50)
+title.Text = "🌱 Auto Craft"
+title.TextColor3 = Color3.fromRGB(230, 240, 255)
+title.Font = Enum.Font.GothamBold
+title.TextSize = 16
+title.TextXAlignment = Enum.TextXAlignment.Left
+title.BorderSizePixel = 0
+title.Parent = mainFrame
+
+local closeBtn = Instance.new("TextButton")
+closeBtn.Size = UDim2.new(0, 24, 0, 24)
+closeBtn.Position = UDim2.new(1, -28, 0, 3)
+closeBtn.Text = "✕"
+closeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeBtn.BackgroundColor3 = Color3.fromRGB(200, 60, 60)
+closeBtn.Font = Enum.Font.GothamBold
+closeBtn.TextSize = 16
+closeBtn.Parent = mainFrame
+closeBtn.MouseButton1Click:Connect(function()
+	screenGui:Destroy()
+end)
+
+local minimizeBtn = Instance.new("TextButton")
+minimizeBtn.Size = UDim2.new(0, 24, 0, 24)
+minimizeBtn.Position = UDim2.new(1, -56, 0, 3)
+minimizeBtn.Text = "–"
+minimizeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+minimizeBtn.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+minimizeBtn.Font = Enum.Font.GothamBold
+minimizeBtn.TextSize = 20
+minimizeBtn.Parent = mainFrame
+
+local toggleBtn = Instance.new("TextButton")
+toggleBtn.Name = "ToggleBtn"
+toggleBtn.Size = UDim2.new(1, -20, 0, 38)
+toggleBtn.Position = UDim2.new(0, 10, 1, -48)
+toggleBtn.BackgroundColor3 = Color3.fromRGB(75, 170, 85)
+toggleBtn.Text = "Start"
+toggleBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+toggleBtn.Font = Enum.Font.GothamBold
+toggleBtn.TextSize = 16
+toggleBtn.Parent = mainFrame
+
+local minimized = false
+minimizeBtn.MouseButton1Click:Connect(function()
+	if minimized then
+		mainFrame.Size = UDim2.new(0, 180, 0, 120)
+		toggleBtn.Visible = true
+		minimized = false
+	else
+		mainFrame.Size = UDim2.new(0, 180, 0, 30)
+		toggleBtn.Visible = false
+		minimized = true
+	end
+end)
+
+local running = false
+local toolNamePrefix = "Flower Seed Pack"
+
+local craftingPath = workspace:WaitForChild("Interaction", 9e9)
+	:WaitForChild("UpdateItems", 9e9)
+	:WaitForChild("NewCrafting", 9e9)
+	:WaitForChild("SeedEventCraftingWorkBench", 9e9)
+
+local craftEvent = ReplicatedStorage:WaitForChild("GameEvents", 9e9)
+	:WaitForChild("CraftingGlobalObjectService", 9e9)
+
+local function hasSeedTool()
+	local backpack = LocalPlayer:FindFirstChild("Backpack")
+	if not backpack then return false end
+	for _, tool in ipairs(backpack:GetChildren()) do
+		if tool:IsA("Tool") and tool.Name:sub(1, #toolNamePrefix) == toolNamePrefix then
+			return true
+		end
+	end
+	return false
+end
+
+local function waitForNoCraftingGui()
+	local bench = craftingPath:WaitForChild("SeedEventCraftingWorkBench")
+	local model = bench:WaitForChild("Model")
+	local table = model:WaitForChild("BenchTable")
+	while running and table:FindFirstChild("CraftingBillboardGui") do
+		task.wait(1)
+	end
+end
+
+local function equipTool()
+	local backpack = LocalPlayer:WaitForChild("Backpack")
+	local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+	for _, tool in ipairs(backpack:GetChildren()) do
+		if tool:IsA("Tool") and tool.Name:sub(1, #toolNamePrefix) == toolNamePrefix then
+			local humanoid = character:FindFirstChildOfClass("Humanoid")
+			if humanoid then
+				humanoid:EquipTool(tool)
+				return true
+			end
+		end
+	end
+	return false
+end
+
+local function unequipTool()
+	local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+	for _, tool in ipairs(character:GetChildren()) do
+		if tool:IsA("Tool") and tool.Name:sub(1, #toolNamePrefix) == toolNamePrefix then
+			tool.Parent = LocalPlayer.Backpack
+			return true
+		end
+	end
+	return false
+end
+
+local function triggerProximity()
+	local prompt = craftingPath.SeedEventCraftingWorkBench.Model.BenchTable:WaitForChild("CraftingProximityPrompt")
+	prompt.MaxActivationDistance = math.huge
+	prompt:InputHoldBegin()
+	prompt:InputHoldEnd()
+end
+
+local function automateCrafting()
+	while running do
+		if not hasSeedTool() then
+			task.wait(1)
+			continue
+		end
+
+		waitForNoCraftingGui()
+
+		craftEvent:FireServer("Claim", craftingPath, "SeedEventWorkbench", 1)
+		task.wait(0.5)
+
+		craftEvent:FireServer("SetRecipe", craftingPath, "SeedEventWorkbench", "Crafters Seed Pack")
+		task.wait(0.5)
+
+		equipTool()
+		task.wait(1)
+
+		triggerProximity()
+		task.wait(1)
+
+		unequipTool()
+
+		craftEvent:FireServer("Craft", craftingPath, "SeedEventWorkbench")
+		task.wait(1)
+	end
+end
+
+toggleBtn.MouseButton1Click:Connect(function()
+	running = not running
+	if running then
+		toggleBtn.Text = "Stop"
+		toggleBtn.BackgroundColor3 = Color3.fromRGB(170, 75, 75)
+		task.spawn(automateCrafting)
+	else
+		toggleBtn.Text = "Start"
+		toggleBtn.BackgroundColor3 = Color3.fromRGB(75, 170, 85)
+	end
+end)
