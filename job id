@@ -1,0 +1,115 @@
+local Players = game:GetService("Players")
+local TeleportService = game:GetService("TeleportService")
+local player = Players.LocalPlayer
+local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+gui.Name = "JobIdGui"
+gui.ResetOnSpawn = false
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 200, 0, 180)
+frame.Position = UDim2.new(0.5, -100, 0.5, -90)
+frame.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
+frame.Active = true
+frame.Draggable = true
+frame.Parent = gui
+Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 10)
+
+local title = Instance.new("TextLabel", frame)
+title.Size = UDim2.new(1, -60, 0, 30)
+title.Position = UDim2.new(0, 10, 0, 0)
+title.BackgroundTransparency = 1
+title.Text = "Job Id Getter"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.Font = Enum.Font.GothamBold
+title.TextSize = 16
+title.TextXAlignment = Enum.TextXAlignment.Left
+
+local close = Instance.new("TextButton", frame)
+close.Size = UDim2.new(0, 20, 0, 20)
+close.Position = UDim2.new(1, -25, 0, 5)
+close.Text = "✕"
+close.BackgroundTransparency = 1
+close.TextColor3 = Color3.fromRGB(255, 100, 100)
+close.Font = Enum.Font.GothamBold
+close.TextSize = 16
+
+local minimize = Instance.new("TextButton", frame)
+minimize.Size = UDim2.new(0, 20, 0, 20)
+minimize.Position = UDim2.new(1, -45, 0, 5)
+minimize.Text = "–"
+minimize.BackgroundTransparency = 1
+minimize.TextColor3 = Color3.fromRGB(255, 255, 100)
+minimize.Font = Enum.Font.GothamBold
+minimize.TextSize = 16
+
+local input = Instance.new("TextBox", frame)
+input.Size = UDim2.new(1, -20, 0, 30)
+input.Position = UDim2.new(0, 10, 0, 40)
+input.PlaceholderText = "Enter Job ID"
+input.Text = ""
+input.TextColor3 = Color3.fromRGB(255, 255, 255)
+input.BackgroundColor3 = Color3.fromRGB(60, 60, 70)
+input.Font = Enum.Font.Gotham
+input.TextSize = 14
+input.ClearTextOnFocus = false
+input.TextWrapped = true
+input.TextTruncate = Enum.TextTruncate.AtEnd
+Instance.new("UICorner", input).CornerRadius = UDim.new(0, 5)
+
+local join = Instance.new("TextButton", frame)
+join.Size = UDim2.new(1, -20, 0, 30)
+join.Position = UDim2.new(0, 10, 0, 85)
+join.Text = "Join Job ID"
+join.TextColor3 = Color3.fromRGB(255, 255, 255)
+join.BackgroundColor3 = Color3.fromRGB(70, 130, 180)
+join.Font = Enum.Font.GothamBold
+join.TextSize = 14
+Instance.new("UICorner", join).CornerRadius = UDim.new(0, 5)
+
+local copy = Instance.new("TextButton", frame)
+copy.Size = UDim2.new(1, -20, 0, 30)
+copy.Position = UDim2.new(0, 10, 0, 125)
+copy.Text = "Copy Current Job ID"
+copy.TextColor3 = Color3.fromRGB(255, 255, 255)
+copy.BackgroundColor3 = Color3.fromRGB(100, 149, 237)
+copy.Font = Enum.Font.GothamBold
+copy.TextSize = 14
+Instance.new("UICorner", copy).CornerRadius = UDim.new(0, 5)
+
+close.MouseButton1Click:Connect(function()
+	gui:Destroy()
+end)
+
+local minimized = false
+minimize.MouseButton1Click:Connect(function()
+	minimized = not minimized
+	input.Visible = not minimized
+	join.Visible = not minimized
+	copy.Visible = not minimized
+	frame.Size = minimized and UDim2.new(0, 200, 0, 40) or UDim2.new(0, 200, 0, 180)
+end)
+
+copy.MouseButton1Click:Connect(function()
+	local jobId = game.JobId
+	if jobId ~= "" then
+		if setclipboard then
+			setclipboard(jobId)
+			print("Copied Job ID:", jobId)
+		else
+			warn("Clipboard not supported.")
+		end
+	else
+		warn("Job ID not available (Studio).")
+	end
+end)
+
+join.MouseButton1Click:Connect(function()
+	local jobId = input.Text
+	if jobId ~= "" then
+		local placeId = game.PlaceId
+		print("Joining Job ID:", jobId)
+		TeleportService:TeleportToPlaceInstance(placeId, jobId, player)
+	else
+		warn("Please enter a Job ID.")
+	end
+end)
